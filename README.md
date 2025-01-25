@@ -228,3 +228,8 @@ npm run studio
 ```
 
 This should point you to either `http://localhost:3000` or `http://localhost:3001` if your frontend is already running on 3000.
+
+## Customer Tickets
+
+| Ticket | Message | Label | Priority | Response | Internal Notes |
+| ------ | ------- | ----- | -------- | -------- | -------------- |
