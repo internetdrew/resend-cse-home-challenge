@@ -30,8 +30,8 @@ Best for single applications and quick prototypes:
 ```bash
 my-nextjs-app/
 ├── app/
-│   ├── api/send/     # API endpoints
-│   └── emails/       # Email templates
+│   ├── api/send/   # API endpoints 
+├── emails/         # Email templates
 ├── package.json
 └── ... other Next.js files
 ```
@@ -52,6 +52,13 @@ my-nextjs-app/
 └── ... other Next.js files
 ```
 
+Consider a standard setup when:
+
+- Building a single application
+- Need quick development
+- Want simpler maintenance
+- Have a small team
+
 Consider a monorepo when:
 
 - Sharing templates across multiple applications
@@ -59,12 +66,6 @@ Consider a monorepo when:
 - Want to publish templates as a package
 - Have separate teams for email and app development
 
-Consider a standard setup when:
-
-- Building a single application
-- Need quick development
-- Want simpler maintenance
-- Have a small team
 
 ### Step 2: Project Setup
 
@@ -75,7 +76,8 @@ Consider a standard setup when:
 npx create-next-app@latest my-email-project
 
 # Install dependencies
-npm install resend @react-email/components
+npm install react-email -D -E
+npm install @react-email/components react react-dom -E
 ```
 
 #### Monorepo Setup
@@ -93,13 +95,14 @@ cd packages/transactional
 npm init -y
 
 # Install React Email
-npm install @react-email/components
+npm install react-email -D -E
+npm install @react-email/components react react-dom -E
 ```
-And add this script to run the studio:
+And add this script to run the studio in the relevant `package.json` file:
 ```json
 {
  "scripts": {
-    "dev": "email dev"
+    "studio": "email dev"
   },
 }
 ```
@@ -204,7 +207,12 @@ RESEND_API_KEY=re_123...  # Your Resend API key
 npm run dev
 ```
 
-2. Send a test email:
+2. Start your email studio:
+```bash
+npm run studio
+```
+
+3. Send a test email:
 ```bash
 curl -X POST http://localhost:3000/api/send
 ```
@@ -215,7 +223,7 @@ curl -X POST http://localhost:3000/api/send
 cd packages/transactional
 
 # Run the live studio
-npm run dev
+npm run studio
 ```
 
 This should point you to either `http://localhost:3000` or `http://localhost:3001` if your frontend is already running on 3000.
