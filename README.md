@@ -92,21 +92,24 @@ mkdir -p packages/transactional
 cd packages/transactional
 npm init -y
 
-# Install React Email in `packages/transactional`
+# Install React Email
 npm install @react-email/components
 ```
 And add this script to run the studio:
 ```json
 {
  "scripts": {
-    "dev": "email dev"  // Enables the email preview environment
+    "dev": "email dev"
   },
 }
 ```
 
 ### Step 3: Create Email Template
 ```typescript
-// emails/BillingEmail.tsx (standard) or packages/transactional/emails/BillingEmail.tsx (monorepo)
+/*
+app/emails/BillingEmail.tsx (standard) 
+or packages/transactional/emails/BillingEmail.tsx (monorepo)
+*/
 import { Html, Button, Head, Body } from '@react-email/components';
 
 type BillingEmailProps = {
@@ -131,7 +134,7 @@ export default function BillingEmail({ firstName }: BillingEmailProps) {
 
 ### Step 4: Implement API Endpoint
 
-#### Using App Router (Modern)
+#### Using App Router
 ```typescript
 // app/api/send/route.ts
 import { Resend } from 'resend';
@@ -214,3 +217,5 @@ cd packages/transactional
 # Run the live studio
 npm run dev
 ```
+
+This should point you to either `http://localhost:3000` or `http://localhost:3001` if your frontend is already running on 3000.
