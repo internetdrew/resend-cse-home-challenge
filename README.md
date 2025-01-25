@@ -66,6 +66,7 @@ Consider a monorepo when:
 - Want to publish templates as a package
 - Have separate teams for email and app development
 
+> **Important:** When you run your email studio, it will look for an `emails` directory at the same level as your `package.json` file.
 
 ### Step 2: Project Setup
 
