@@ -1,8 +1,4 @@
-# Andrew Rowley's CSE Take Home Challenge
-
-## Tutorial
-
-### Overview
+# Andrew Rowley's CSE Take Home Challenge (Tutorial)
 
 This tutorial demonstrates how to send transactional emails using Resend and React Email in Next.js. You'll learn how to:
 
@@ -11,7 +7,7 @@ This tutorial demonstrates how to send transactional emails using Resend and Rea
 3. Implement API endpoints
 4. Send emails using Resend
 
-### Prerequisites
+## Prerequisites
 
 To make the most of this guide, you'll need to:
 
@@ -21,22 +17,22 @@ To make the most of this guide, you'll need to:
 - [Verify your domain](https://resend.com/domains)
   - If you have trouble getting your domain verified, be sure to visit documentation for your provider, as they may have specific instructions for adding DKIM and SPF records.
 
-### Step 1: Choose Your Project Structure
+## Step 1: Choose Your Project Structure
 
-#### Standard Structure
+### Standard Structure
 
 Best for single applications and quick prototypes:
 
 ```bash
 my-nextjs-app/
 ├── app/
-│   ├── api/send/   # API endpoints 
+│   ├── api/send/   # API endpoints
 ├── emails/         # Email templates
 ├── package.json
 └── ... other Next.js files
 ```
 
-#### Monorepo Structure
+### Monorepo Structure
 
 Best for sharing templates across multiple projects:
 
@@ -68,9 +64,9 @@ Consider a monorepo when:
 
 > **Important:** When you run your email studio, it will look for an `emails` directory at the same level as your `package.json` file.
 
-### Step 2: Project Setup
+## Step 2: Project Setup
 
-#### Standard Setup
+### Standard Setup
 
 ```bash
 # Create a new Next.js project (skip if existing)
@@ -81,7 +77,7 @@ npm install react-email -D -E
 npm install @react-email/components react react-dom -E
 ```
 
-#### Monorepo Setup
+### Monorepo Setup
 
 ```bash
 # Create a new Next.js project (skip if existing)
@@ -99,19 +95,22 @@ npm init -y
 npm install react-email -D -E
 npm install @react-email/components react react-dom -E
 ```
+
 And add this script to run the studio in the relevant `package.json` file:
+
 ```json
 {
- "scripts": {
+  "scripts": {
     "studio": "email dev"
-  },
+  }
 }
 ```
 
-### Step 3: Create Email Template
+## Step 3: Create Email Template
+
 ```typescript
 /*
-app/emails/BillingEmail.tsx (standard) 
+app/emails/BillingEmail.tsx (standard)
 or packages/transactional/emails/BillingEmail.tsx (monorepo)
 */
 import { Html, Button, Head, Body } from '@react-email/components';
@@ -136,9 +135,10 @@ export default function BillingEmail({ firstName }: BillingEmailProps) {
 }
 ```
 
-### Step 4: Implement API Endpoint
+## Step 4: Implement API Endpoint
 
-#### Using App Router
+### Using App Router
+
 ```typescript
 // app/api/send/route.ts
 import { Resend } from 'resend';
@@ -163,7 +163,8 @@ export async function POST() {
 }
 ```
 
-#### Using Pages Router
+### Using Pages Router
+
 ```typescript
 // pages/api/send.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
@@ -172,7 +173,10 @@ import BillingEmail from '@/emails/BillingEmail';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -193,9 +197,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 }
 ```
 
-### Step 5: Environment Setup
+## Step 5: Environment Setup
 
 1. Create a `.env` file:
+
 ```bash
 RESEND_API_KEY=re_123...  # Your Resend API key
 ```
@@ -203,22 +208,27 @@ RESEND_API_KEY=re_123...  # Your Resend API key
 2. For production, add the environment variable to your hosting platform (Vercel, etc.)
 
 ### Testing
+
 1. Start your development server:
+
 ```bash
 npm run dev
 ```
 
 2. Start your email studio:
+
 ```bash
 npm run studio
 ```
 
 3. Send a test email:
+
 ```bash
 curl -X POST http://localhost:3000/api/send
 ```
 
 ### See Live Email Template Changes (Monorepo)
+
 ```bash
 # Navigate to transactional
 cd packages/transactional
@@ -228,15 +238,3 @@ npm run studio
 ```
 
 This should point you to either `http://localhost:3000` or `http://localhost:3001` if your frontend is already running on 3000.
-
-## Customer Tickets
-
-| Ticket | Message | Label | Priority | Response | Internal Notes |
-| ------ | ------- | ----- | -------- | -------- | -------------- |
-| RES-7921 | My emails suddenly stopped sending last night for 4 hours and thousands of magic links didn’t send. What happened? This is unacceptable. | `outage` `critical` | 1 | N/A | Check [https://resend-status.com/](https://resend-status.com/) to see if all services are online.|
-| RES-2196 | My emails are going to the spam folder at Gmail. What can I do to stop this? | `deliverability` `configuration` | 2 | N/A | N/A |
-| RES-3485 | When I send a request to trigger a notification, I get an error message in the system. The user does not receive the email, and the system displays an error message: ”Too many requests. You can only make 2 requests per second. See rate limit response headers for more information. Or contact support to increase rate limit.” | `rate-limit` `api` | 3 | N/A | N/A |
-| RES-5842 | I need to be able to receive emails from Resend. How do I do that? | `inbound-email` `how-to` | 4 | N/A | N/A |
-| RES-1927 | I’m not sure how to add the TXT record at Vercel. Can you tell me how? | `dns` `vercel` `setup` | 5 | N/A | N/A |
-| RES-2984 | How do i create an email? | `getting started` `docs` | 6 | N/A | N/A |
-| RES-1348 | How do I migrate from Sendgrid?| `migration` `sendgrid` | 7 | N/A | N/A |
