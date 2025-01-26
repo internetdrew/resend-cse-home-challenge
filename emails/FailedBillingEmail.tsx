@@ -1,5 +1,5 @@
 import React from 'react';
-import { Html, Button, Head, Body } from '@react-email/components';
+import { Html, Head, Body } from '@react-email/components';
 
 type FailedBillingTemplateProps = {
   readonly firstName: string;
@@ -25,19 +25,19 @@ const FailedBillingTemplate = ({
           This email was sent from{' '}
           <strong>Andrew&apos;s Resend CSE Home Challenge</strong>.
         </p>
-        <p>Check out the repo here:</p>
-        <Button
-          href='https://github.com/internetdrew/resend-cse-home-challenge'
-          style={{
-            color: '#fff',
-            padding: '10px 20px',
-            backgroundColor: '#000',
-            borderRadius: '4px',
-            textDecoration: 'none',
-          }}
-        >
-          View the repo
-        </Button>
+        <p>Here are some links to help you:</p>
+        <ul>
+          <li>
+            <a href='https://github.com/internetdrew/resend-cse-home-challenge'>
+              View the tutorial repo
+            </a>
+          </li>
+          <li>
+            <a href='https://andrewofnewyork.notion.site/Resend-CSE-Take-Home-Challenge-Customer-Tickets-187ffd770e1c80d8853cf05099f7cec1'>
+              See my customer ticket responses
+            </a>
+          </li>
+        </ul>
       </Body>
     </Html>
   );
