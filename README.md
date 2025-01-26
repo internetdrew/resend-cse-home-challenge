@@ -233,10 +233,10 @@ This should point you to either `http://localhost:3000` or `http://localhost:300
 
 | Ticket | Message | Label | Priority | Response | Internal Notes |
 | ------ | ------- | ----- | -------- | -------- | -------------- |
-| RES-7921 | My emails suddenly stopped sending last night for 4 hours and thousands of magic links didn’t send. What happened? This is unacceptable. | N/A | 1 | N/A | N/A |
-| RES-2196 | My emails are going to the spam folder at Gmail. What can I do to stop this? | N/A | 2 | N/A | N/A |
-| RES-3485 | When I send a request to trigger a notification, I get an error message in the system. The user does not receive the email, and the system displays an error message: ”Too many requests. You can only make 2 requests per second. See rate limit response headers for more information. Or contact support to increase rate limit.” | N/A | 3 | N/A | N/A |
-| RES-5842 | I need to be able to receive emails from Resend. How do I do that? | N/A | 4 | N/A | N/A |
-| RES-1927 | I’m not sure how to add the TXT record at Vercel. Can you tell me how? | N/A | 5 | N/A | N/A |
-| RES-2984 | How do i create an email? | N/A | 6 | N/A | N/A |
-| RES-1348 | How do I migrate from Sendgrid?| N/A | 7 | N/A | N/A |
+| RES-7921 | My emails suddenly stopped sending last night for 4 hours and thousands of magic links didn’t send. What happened? This is unacceptable. | `outage` `critical` | 1 | N/A | N/A |
+| RES-2196 | My emails are going to the spam folder at Gmail. What can I do to stop this? | `deliverability` `configuration` | 2 | N/A | N/A |
+| RES-3485 | When I send a request to trigger a notification, I get an error message in the system. The user does not receive the email, and the system displays an error message: ”Too many requests. You can only make 2 requests per second. See rate limit response headers for more information. Or contact support to increase rate limit.” | `rate-limit` `api` | 3 | N/A | N/A |
+| RES-5842 | I need to be able to receive emails from Resend. How do I do that? | `inbound-email` `how-to` | 4 | N/A | N/A |
+| RES-1927 | I’m not sure how to add the TXT record at Vercel. Can you tell me how? | `dns` `vercel` `setup` | 5 | N/A | N/A |
+| RES-2984 | How do i create an email? | `getting started` `docs` | 6 | N/A | N/A |
+| RES-1348 | How do I migrate from Sendgrid?| `migration` `sendgrid` | 7 | N/A | N/A |
