@@ -16,6 +16,13 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!process.env.EMAIL_FROM || !process.env.EMAIL_TO) {
+      return Response.json(
+        { error: 'Email from and to addresses are required in .env' },
+        { status: 400 }
+      );
+    }
+
     const filepath = path.join(
       process.cwd(),
       'public',
@@ -25,8 +32,8 @@ export async function POST(request: Request) {
     const attachment = fs.readFileSync(filepath).toString('base64');
 
     const { data, error } = await resend.emails.send({
-      from: 'info@updates.internetdrew.com',
-      to: ['andrew@internetdrew.com'],
+      from: process.env.EMAIL_FROM,
+      to: [process.env.EMAIL_TO],
       subject: `${firstName} - Your Payment Failed`,
       react: FailedBillingTemplate({ firstName }),
       attachments: [
