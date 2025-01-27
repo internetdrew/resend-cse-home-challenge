@@ -8,7 +8,7 @@ export default function Home() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        firstName: 'Jonnie',
+        firstName: 'Jonni',
       }),
     });
     console.log(response);
