@@ -25,6 +25,15 @@ const FailedBillingTemplate = ({
           This email was sent from{' '}
           <strong>Andrew&apos;s Resend CSE Home Challenge</strong>.
         </p>
+        <p>
+          Included in this email is a link to the Resend CSE Home Challenge
+          tutorial repo, my responses to customer tickets, and a Loom of a bug I
+          found while going through this process.
+        </p>
+        <p>
+          If you have any questions, please contact me at{' '}
+          <a href='mailto:andrew@internetdrew.com'>andrew@internetdrew.com</a>.
+        </p>
         <p>Here are some links to help you:</p>
         <ul>
           <li>
@@ -35,6 +44,11 @@ const FailedBillingTemplate = ({
           <li>
             <a href='https://andrewofnewyork.notion.site/Resend-CSE-Take-Home-Challenge-Customer-Tickets-187ffd770e1c80d8853cf05099f7cec1'>
               See my customer ticket responses
+            </a>
+          </li>
+          <li>
+            <a href='https://www.loom.com/share/f3880b36f9e44b64babee286b6eca789?sid=d2046e9c-9ce5-4409-bbec-933f865d8455'>
+              See the Loom of a bug I found
             </a>
           </li>
         </ul>
