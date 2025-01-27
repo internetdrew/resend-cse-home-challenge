@@ -1,6 +1,6 @@
 # Andrew Rowley's CSE Take Home Challenge (Tutorial)
 
-This tutorial demonstrates how to send transactional emails using Resend and React Email in Next.js. You'll learn how to:
+This tutorial demonstrates how to send emails using Resend and React Email in Next.js. You'll learn how to:
 
 1. Set up your project structure
 2. Create email templates
@@ -12,10 +12,9 @@ This tutorial demonstrates how to send transactional emails using Resend and Rea
 To make the most of this guide, you'll need to:
 
 - [Create a Resend API key](https://resend.com/api-keys)
-  - To avoid abuse, be sure to store follow best practices for secret safety.
+  - To avoid abuse, be sure to follow best practices for secret safety.
   - Learn about using environment variables with the [App Router](https://nextjs.org/docs/app/building-your-application/configuring/environment-variables) and [Pages Router](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables)
 - [Verify your domain](https://resend.com/domains)
-  - If you have trouble getting your domain verified, be sure to visit documentation for your provider, as they may have specific instructions for adding DKIM and SPF records.
 
 ## Step 1: Choose Your Project Structure
 
