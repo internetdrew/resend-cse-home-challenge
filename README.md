@@ -62,7 +62,7 @@ Consider a monorepo when:
 - Want to publish templates as a package
 - Have separate teams for email and app development
 
-> **Important:** When you run your email studio, it will look for an `emails` directory at the same level as your `package.json` file.
+> **Important:** When you run your email studio, it will look for an `emails` directory at the same level as your `package.json` file, so be sure to keep that those at the same level.
 
 ## Step 2: Project Setup
 
@@ -237,4 +237,4 @@ cd packages/transactional
 npm run studio
 ```
 
-This should point you to either `http://localhost:3000` or `http://localhost:3001` if your frontend is already running on 3000.
+This should point you to either `http://localhost:3000` or `http://localhost:3001` if `3000` is already in use.
